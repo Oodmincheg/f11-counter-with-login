@@ -1,9 +1,9 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { UPDATE_LOGIN, UPDATE_PASSWORD } from '../../store/types';
+import { UPDATE_LOGIN, UPDATE_PASSWORD } from '../../store/login/types';
 
 const LoginForm = () => {
-  const login = useSelector((state) => state.login);
-  const password = useSelector((state) => state.password);
+  const login = useSelector((state) => state.loginReducer.login);
+  const password = useSelector((state) => state.loginReducer.password);
 
   const dispatch = useDispatch();
 

@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { DECREMENT, INCREMENT, RESET } from '../../store/types';
+import { DECREMENT, INCREMENT, RESET } from '../../store/counter/types';
 
 function Counter() {
   const counter = useSelector((state) => state.counterReducer.counter);

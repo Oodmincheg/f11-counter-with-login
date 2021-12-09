@@ -1,21 +1,13 @@
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import { counterReducer } from './counter/reducer';
 import { loginReducer } from './login/reducer';
-// 1. pure function - withou side effects
-// 2. always return state in default
-// 3. reducer synchronyze
-//4. always return new object
+import todos from './todos/reducer';
 
-// {type: "INCREMENT"}
-const store = createStore(combineReducers({ counterReducer, loginReducer }));
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-// {
-//   counterReducer: {
-//     counter: 0;
-//     },
-//     loginReducer: {
-//         login: '',
-//         password: ''
-//     }
-// }
+const store = createStore(
+  combineReducers({ counterReducer, loginReducer, todos }),
+  composeEnhancers(applyMiddleware()),
+);
+
 export default store;

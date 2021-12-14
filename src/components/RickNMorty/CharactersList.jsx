@@ -1,4 +1,7 @@
-const CharactersList = ({ characterList = [] }) => {
+import { useSelector } from 'react-redux';
+
+const CharactersList = () => {
+  const characterList = useSelector((state) => state.rickNMorty.charactersList);
   return (
     <>
       {characterList.map(({ name }) => (
